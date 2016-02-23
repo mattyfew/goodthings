@@ -1,1 +1,12 @@
- 
+<h1>Profile</h1>
+
+<!-- currentUser is in $rootScope -->
+{{ currentUser }}
+
+<div ng-show="currentUser.roles.indexOf('admin') > -1">
+  <h2>Admin</h2>
+</div>
+
+<div ng-show="currentUser.roles.indexOf('user') > -1">
+  <h2>User</h2>
+</div>

@@ -10,6 +10,7 @@ var express = require('express'),
 		LocalStrategy = require('passport-local').Strategy,
 		// passportConfig = require('./auth/passport-config'),
 		path = require('path'),
+		engine = require('consolidate'),
 		routes = require('./app/routes/routes'),
 		users = require('./app/routes/users');
 
@@ -17,9 +18,10 @@ var express = require('express'),
 // ====================================
 
 // VIEW ENGINE SETUP
-app.set('views', path.join(__dirname, 'public/app/views'));
+app.set('views', path.join(__dirname + '/public'));
 app.use(express.static(path.join(__dirname + '/public')));
-app.set('view engine', 'ejs');
+app.engine('html', engine.ejs)
+app.set('view engine', 'html');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
@@ -52,11 +54,11 @@ var db = require('./config/db')
 mongoose.connect(db.url);
 
 // ROUTES=======================================
-require('./app/routes/routes')(app);
+//require('./app/routes/routes')(app);
 
 // Angular Route
 app.get('*', function(req, res) {
-    res.render(__dirname + '/public/app/views/index.html')
+    res.render(__dirname + '/public/app/index.html')
 });
 
 app.listen(config.port, function(){ console.log("Listening on port " + config.port); });

@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="Siftit">
+<html lang="en" ng-app="GoodThings">
 
 <head>
 	<meta charset="UTF-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Siftit</title>
+	<title>GoodThings</title>
 	<base href="/" />
 	<link rel="stylesheet" href="assets/bower/foundation/css/normalize.min.css" />
 	<link rel="stylesheet" href="assets/bower/foundation-sites/dist/foundation.min.css" />
@@ -12,21 +12,21 @@
 	<script src="assets/bower/modernizr/modernizr.js"></script>
 </head>
 
-<body>
+<body ng-app="GoodThings">
+
 	<!-- NAVIGATION -->
 	<div class="top-bar">
 		<div class="top-bar-left">
 			<ul class="dropdown menu" data-dropdown-menu>
 				<li class="menu-text">Goodthings</li>
 				<li class="has-submenu">
-					<a href="#">Profile</a>
+					<a href="/#">Home</a>
 					<ul class="submenu menu vertical" data-submenu>
-						<li><a href="#">Preferences</a></li>
-						<li><a href="#">Help</a></li>
+						<li><a href="#/profile">Profile</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Results</a></li>
-				<li><a href="#">Saved</a></li>
+				<li><a ui-sref="view({view:view})" ng-click="setCurrentView(view)" ng-show="!currentUser">Login</a></li>
+				<li><a href="#/logout()" ng-show="currentUser">Logout</a></li>
 			</ul>
 		</div>
 		<div class="top-bar-right">
@@ -39,15 +39,22 @@
 
 	<!-- MAIN CONTENT -->
 		<div class="container">
-			<div class="row" id="main-row" >
+			<div class="row" id="main-row">
+
 				<header>
-					<div id="welcome-header" class="medium-6 medium-centered columns"><h1>Welcome to Goodthings!</h1></div>
-					<div>Making you the best you that you can be!</div>
-					<br>
-					<a id="welcome-login-link" href="/login">Please click here to login</a>
+				  <div id="welcome-header" class="medium-6 medium-centered columns"><h1>Welcome to Goodthings!</h1></div>
+				  <div>Making you the best you that you can be!</div>
+				  <br>
+				  <a id="welcome-login-link" href="/login">Please click here to login</a>
 				</header>
 
+				<div ui-view="login">
 
+				</div>
+
+				<div ui-view="profile">
+
+				</div>
 
 			</div>
 		</div>
@@ -65,6 +72,9 @@
 	<!--	Angular App Code	-->
 	<script src="app/app.js"></script>
 	<script src="app/app.routes.js"></script>
+	<script src="app/users/users.services.js"></script>
+	<script src="app/users/users.controllers.js"></script>
+	<script src="app/users/users.main.js"></script>
 
 	<!--	Other Script Files	-->
 	<script src="assets/js/main.js"></script>

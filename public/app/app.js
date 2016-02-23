@@ -2,15 +2,15 @@
 // ============================
 'use strict';
 
-angular.module('Siftit', [
+angular.module('GoodThings', [
 	'app.routes',
 	'users.main'
 ])
 
-// .config(function($rootScope) {
-// 	var app = this;
-//
-// 	// app.run(($rootScope) => {
-// 	//   $rootScope.$on("$stateChangeError", console.log.bind(console));
-// 	// });
-// })
+.controller('MainCtrl', function($scope, $state) {
+	function setCurrentView(view) {
+		$scope.currentView = view;
+
+		$state.go('login', {view: view});
+	}
+})

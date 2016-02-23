@@ -12,25 +12,26 @@ angular.module('app.routes', ['ui.router'])
 		.state('goodthings', {
 			url: '/',
 			abstract: true,
-			template: '<ui-view/>'
+			templateUrl: 'app/home.html',
+			controller: 'MainCtrl'
 		})
 
 		.state('goodthings.home', {
 			url: '',
 			views: {
-				'alerts@' : {
-					controller: 'alertsCtrl',
-					controllerAs: 'alerts',
-					templateUrl: 'app/products/products.tmpl.html'
+				'login@' : {
+					controller: 'LoginCtrl',
+					controllerAs: 'LoginCtrl',
+					templateUrl: 'app/views/login.html'
 				},
 
-				'graphs@' : {
-
-				},
-
-				'socialFeed@' : {
-
+				'profile@' : {
+					controller: 'ProfileCtrl',
+					controllerAs: 'ProfileCtrl',
+					templateUrl: 'app/views/profile.html'
 				}
 			}
-		});
+		})
+
+		$urlRouterProvider.otherwise('/');
 });
