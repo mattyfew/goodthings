@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Siftit">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Siftit</title>
+	<base href="/" />
+	<link rel="stylesheet" href="assets/bower/foundation/css/normalize.min.css" />
+	<link rel="stylesheet" href="assets/bower/foundation-sites/dist/foundation.min.css" />
+	<link rel="stylesheet" href="assets/css/main.min.css" />
+	<script src="assets/bower/modernizr/modernizr.js"></script>
+</head>
+
+<body>
+	<!-- NAVIGATION -->
+	<div class="top-bar">
+		<div class="top-bar-left">
+			<ul class="dropdown menu" data-dropdown-menu>
+				<li class="menu-text">Goodthings</li>
+				<li class="has-submenu">
+					<a href="#">Profile</a>
+					<ul class="submenu menu vertical" data-submenu>
+						<li><a href="#">Preferences</a></li>
+						<li><a href="#">Help</a></li>
+					</ul>
+				</li>
+				<li><a href="#">Results</a></li>
+				<li><a href="#">Saved</a></li>
+			</ul>
+		</div>
+		<div class="top-bar-right">
+			<ul class="menu">
+				<li><input type="search" placeholder="Search"></li>
+				<li><button type="button" class="button">Search</button></li>
+			</ul>
+		</div>
+	</div>
+
+	<!-- MAIN CONTENT -->
+		<div class="container">
+			<div class="row" id="main-row" >
+				<header>
+					<div id="welcome-header" class="medium-6 medium-centered columns"><h1>Welcome to Goodthings!</h1></div>
+					<div>Making you the best you that you can be!</div>
+					<br>
+					<a id="welcome-login-link" href="/login">Please click here to login</a>
+				</header>
+
+
+
+			</div>
+		</div>
+
+		</div><!--==============	CLOSES MAIN-ROW	================-->
+	</div>	<!--==============	CLOSES CONTAINER	================-->
+
+	<script src="assets/bower/jquery/dist/jquery.min.js"></script>
+	<script src="assets/bower/foundation-sites/dist/foundation.min.js"></script>
+	<script src="assets/bower/foundation-sites/js/foundation.util.mediaQuery.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/lodash.js/2.4.1/lodash.min.js"></script>
+	<script src="assets/bower/angular/angular.min.js"></script>
+	<script src="assets/bower/angular-ui-router/release/angular-ui-router.min.js"></script>
+
+	<!--	Angular App Code	-->
+	<script src="app/app.js"></script>
+	<script src="app/app.routes.js"></script>
+
+	<!--	Other Script Files	-->
+	<script src="assets/js/main.js"></script>
+	<!-- <script src="//localhost:35729/livereload.js"></script> -->
+
+</body>
+</html>
