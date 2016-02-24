@@ -20,12 +20,13 @@
 			<ul class="dropdown menu" data-dropdown-menu>
 				<li class="menu-text">Goodthings</li>
 				<li class="has-submenu">
-					<a href="/#">Home</a>
+					<a href="#/">Home</a>
 					<ul class="submenu menu vertical" data-submenu>
-						<li><a href="#/profile">Profile</a></li>
+						<li><a ui-sref="#/profile">Profile</a></li>
 					</ul>
 				</li>
-				<li><a ui-sref="view({view:view})" ng-click="setCurrentView(view)" ng-show="!currentUser">Login</a></li>
+				<li><a ui-sref="profile">Profile</a></li>
+				<li><a ui-sref="login" ng-show="!currentUser">Login</a></li>
 				<li><a href="#/logout()" ng-show="currentUser">Logout</a></li>
 			</ul>
 		</div>
@@ -48,13 +49,15 @@
 				  <a id="welcome-login-link" href="/login">Please click here to login</a>
 				</header>
 
-				<div ui-view="login">
+				<div ui-view></div>
+
+				<!-- <div ui-view="login">
 
 				</div>
 
 				<div ui-view="profile">
 
-				</div>
+				</div> -->
 
 			</div>
 		</div>

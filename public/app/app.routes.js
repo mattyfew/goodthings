@@ -9,29 +9,24 @@ angular.module('app.routes', ['ui.router'])
 	$urlRouterProvider.otherwise('/');
 
 	$stateProvider
-		.state('goodthings', {
+		.state('home', {
 			url: '/',
 			abstract: true,
 			templateUrl: 'app/home.html',
 			controller: 'MainCtrl'
 		})
 
-		.state('goodthings.home', {
-			url: '',
-			views: {
-				'login@' : {
-					controller: 'LoginCtrl',
-					controllerAs: 'LoginCtrl',
-					templateUrl: 'app/views/login.html'
-				},
-
-				'profile@' : {
-					controller: 'ProfileCtrl',
-					controllerAs: 'ProfileCtrl',
-					templateUrl: 'app/views/profile.html'
-				}
-			}
+		.state('profile', {
+			url: '/profile',
+			templateUrl: 'app/views/profile.html',
+			controller: 'ProfileCtrl'
 		})
+
+		.state('login', {
+			url: '/login',
+			templateUrl: 'app/views/login.html',
+			controller: 'LoginCtrl'
+		});
 
 		$urlRouterProvider.otherwise('/');
 });
