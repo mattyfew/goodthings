@@ -4,29 +4,61 @@ angular.module('app.routes', ['ui.router'])
 
 //config.$inject = ['$locationProvider', '$stateProvider', '$urlRouterProvider'];
 
-.config(function($locationProvider, $stateProvider, $urlRouterProvider){
-	$locationProvider.html5Mode(true);
-	$urlRouterProvider.otherwise('/');
+.config(function($locationProvider, $stateProvider, $urlRouterProvider) {
+  $locationProvider.html5Mode(true);
+  $urlRouterProvider.otherwise('/');
 
-	$stateProvider
-		.state('home', {
-			url: '/',
-			abstract: true,
-			templateUrl: 'app/home.html',
-			controller: 'MainCtrl'
-		})
+  $stateProvider
 
-		.state('profile', {
-			url: '/profile',
-			templateUrl: 'app/views/profile.html',
-			controller: 'ProfileCtrl'
-		})
+    .state('home', {
+    url: '/',
+    views: {
+      'nav': {
+        templateUrl: 'app/views/templates/nav.html',
+        controller: 'NavCtrl'
+      },
+      'main': {
+        templateUrl: 'app/views/home.html'
+      },
+      'footer': {
+        templateUrl: 'app/views/templates/footer.html'
+      }
+    }
+  })
 
-		.state('login', {
-			url: '/login',
-			templateUrl: 'app/views/login.html',
-			controller: 'LoginCtrl'
-		});
+  .state('profile', {
+    url: '/profile',
+    views: {
+      'nav': {
+        templateUrl: 'app/views/templates/nav.html',
+        controller: 'NavCtrl'
+      },
+      'main': {
+        templateUrl: 'app/views/profile.html',
+        controller: 'ProfileCtrl'
+      },
+      'footer': {
+        templateUrl: 'app/views/templates/footer.html'
+      }
+    }
+  })
 
-		$urlRouterProvider.otherwise('/');
-});
+  .state('login', {
+    url: '/login',
+    views: {
+      'nav': {
+        templateUrl: 'app/views/templates/nav.html',
+        controller: 'NavCtrl'
+      },
+      'main': {
+        templateUrl: 'app/views/login.html',
+        controller: 'LoginCtrl'
+      },
+      'footer': {
+        templateUrl: 'app/views/templates/footer.html'
+      }
+    }
+  })
+})
+
+;

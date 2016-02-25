@@ -14,3 +14,7 @@ angular.module('GoodThings', [
 		$state.go('login', {view: view});
 	}
 })
+
+.run(($rootScope) => {
+  $rootScope.$on("$stateChangeError", console.log.bind(console));
+});
