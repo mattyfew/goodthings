@@ -4,11 +4,7 @@
   <div class="top-bar-left">
     <ul class="dropdown menu" data-dropdown-menu>
       <li class="menu-text"><a ui-sref-active="active" ui-sref="home">GoodThings</a></li>
-      <li class="has-submenu">
-        <a ui-sref="home">Home</a>
-        <ul class="submenu menu vertical" data-submenu>
-        </ul>
-      </li>
+      <li><a ui-sref="home">Home</a></li>
       <li><a ui-sref-active="active" ui-sref="profile">Profile</a></li>
       <li><a ui-sref-active="active" ui-sref="login" ng-show="!currentUser">Login</a></li>
       <li><a href="#/logout()" ng-show="currentUser">Logout</a></li>
